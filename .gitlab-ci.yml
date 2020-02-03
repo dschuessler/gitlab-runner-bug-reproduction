@@ -1,0 +1,18 @@
+stages:
+  - test
+ 
+e2e-test:
+  stage: test
+  image: cypress/browsers:chrome69
+  tags:
+    - docker
+    - e2e
+  script:
+    - echo "test"
+  artifacts:
+    when: always
+    paths:
+      - client/web/e2e-test/cypress/videos/*.mp4
+      - client/web/e2e-test/cypress/screenshots/**/*.png
+    expire_in: 1 week
+  
